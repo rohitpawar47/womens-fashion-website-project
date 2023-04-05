@@ -1,0 +1,135 @@
+.offer-banner-top{
+    background-image: url("/Users/rohitpawar/Documents/desktop-copy-16-mar-2023/FE-projects/fashion-store/client/public/Images/green-banner.avif");
+    color: black;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 5em;
+    padding: 1em 0;
+}
+
+.offer-banner-middle{
+    background-color: var(--clr-add-green);
+    color: black;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
+}
+
+.middle-h2,
+.top-h2-1{
+    font-size: 1.6rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: var(--fw-black);
+    letter-spacing: 3px;
+    font-style: italic;
+    line-height: 1.2em;
+    margin-top: .2em;
+}
+
+.top-h2-1{
+    font-size: 2rem;
+}
+
+.top-h2-1,
+.top-h2-2,
+.top-h2-3{
+    line-height: 1.5em;
+}
+.top-h2-2,
+.top-h2-3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: var(--fw-black);
+    letter-spacing: 3px;
+    font-style: italic;
+    line-height: 1.2em;
+    line-height: 1.5em;
+}
+
+.top-h2-2{
+    font-size: 1.5rem;
+}
+
+.top-h2-3{
+    font-size: 1.2rem;
+    margin-bottom: 1em;
+}
+
+.offer-banner > h3{
+    font-size: var(--fs-200);
+    font-weight: var(--fw-bold);
+    letter-spacing: .5px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: .3em;
+    margin-bottom: .7em;
+}
+
+
+.offer-banner > p{
+    font-size: .7rem;
+    justify-self: center;
+    letter-spacing: .5px;
+}
+
+
+.offer-banner > button{
+    background-color: var(--primary-bg-clr);
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: .2em 1.5em;
+    border-radius: 5em;
+    border: 2px solid black;
+    margin-bottom: .3em;
+    transition: background-color 250ms;
+    cursor: pointer;
+}
+
+.offer-banner > button:is(:hover, :focus){
+    background-color: black;
+    color: white;
+}
+
+.offer-banner-top{
+    padding-top: 2em;
+}
+
+@media (min-width: 767px){
+
+    .offer-banner > button{
+        font-size: 1.3rem;
+        padding: .3em 1.8em;
+        margin-bottom: 0;
+    }
+
+    .offer-banner-top{
+        margin-top: 0;
+    }
+
+    .top-h2-1{
+        font-size: 2.8rem;
+    }
+
+    .middle-h2{
+        font-size: 2rem;
+        margin-top: .5em;
+    }
+
+    .top-h2-2{
+        font-size: 2rem;
+    }
+
+    .top-h2-3{
+        font-size: 1.5rem;
+    }
+
+    .offer-banner > h3{
+        font-size: var(--fs-300);
+    }
+
+}

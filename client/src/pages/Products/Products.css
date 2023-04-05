@@ -1,0 +1,255 @@
+.products-page{
+    margin-top: 5.4em;
+    /* position: relative; */
+    margin-bottom: 2em;
+}
+
+.products-wrapper{
+    width: 95%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.products{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 260px));
+    gap: 2em 1em;
+    margin-top: 1.5em;
+    justify-content: center;
+}
+
+
+.product-card{
+    display: grid;
+    grid-template-rows: 1fr 45px 30px;
+    
+}
+
+.product-name{
+    font-size: var(--fs-50);
+    opacity: .8;
+    letter-spacing: .5px;
+    margin-top: .5em;
+    overflow: hidden;
+}
+
+.product-price{
+    font-size: .9rem;
+    font-weight: var(--fw-black);
+    opacity: .6;
+    letter-spacing: .8px;
+    margin-top: .5em;
+}
+
+.products-headline{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5em 1em;
+    background-color: rgb(248,248,248);
+    /* border-top: 1px solid rgb(216, 214, 214); */
+}
+
+.products-headline h2{
+    font-size: var(--fs-500);
+    font-weight: var(--fw-black);
+    letter-spacing: 2px;
+    margin-bottom: .5em;
+    opacity: .9;
+}
+
+.products-headline p{
+    max-width: 1000px;
+    font-size: .9rem;
+    font-weight: var(--fw-regular);
+    letter-spacing: .7px;
+    
+}
+
+.products-headline h3{
+    font-size: .9rem;
+    letter-spacing: 1.5px;
+    font-weight: var(--fw-black);
+    opacity: .9;
+    cursor: pointer;
+}
+
+
+.read-more{
+    display: none;
+}
+
+
+.products-filter-main{ 
+    background-color: rgb(237, 237, 237);
+    border-top: 1px solid rgb(216, 214, 214);
+    position: relative;
+}
+
+.products-filter-center{
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.large-filter{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 1em 2em;
+    gap: 1em;
+}
+
+.large-drop{
+    display: grid;
+    width: 200px;
+    background-color: rgb(237, 237, 237);
+    position: absolute;
+    top: 58px;
+    border: 10px solid rgb(237, 237, 237);
+    box-shadow: 1px 1px 5px gray;
+    gap: .6em;
+    z-index: 1;
+}
+
+.large-drop *{
+    background-color: white;
+    padding: 1em 0;
+    padding-left: 1em;
+    border-radius: .5em;
+    font-size: .85rem;
+    font-weight: 500;
+    text-align: start;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: none;
+}
+
+
+.large-drop *:is(:hover, :focus){
+    box-shadow: 1px 1px 5px gray;
+}
+
+
+/* .click-head{
+    font-size: var(--fs-100);
+    text-align: center;
+    padding: 1em 0;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: .6;
+    border-right: .5px solid rgb(204, 204, 204);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+
+.click-head:is(:hover, :focus){
+    color: rgb(7, 131, 180);
+}
+
+.border-on-click{
+    background-color: white;
+    outline: .5px solid #0870ce;
+    box-shadow: 1px 1px 5px gray;
+}
+
+.arrow-up-down{
+    font-size: 1.8em;
+    font-weight: 900;
+    margin-top: -1em;
+    margin-bottom: -1em;
+    pointer-events: none;
+    
+} */
+
+
+
+.total-item{
+    /* font-family: "Gill Sans", sans-serif; */
+    font-size: .85rem;
+    text-align: center;
+    letter-spacing: .5px;
+    opacity: .8;
+    margin-top: 1.5em;
+}
+
+
+
+
+
+@media (min-width: 767px){
+
+    .product-name{
+        font-size: var(--fs-100);
+    }
+
+    .products-page{
+        margin-top: 0;
+    }
+
+    .products {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    
+
+    .large-drop{
+        width: 350px;
+    }
+
+
+    /* .large-filter{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 1em 2em;
+        gap: 1em;
+    }
+
+    .large-drop{
+        display: grid;
+        width: 350px;
+        background-color: rgb(237, 237, 237);
+        position: absolute;
+        top: 58px;
+        border: 10px solid rgb(237, 237, 237);
+        box-shadow: 1px 1px 5px gray;
+        gap: .6em;
+        z-index: 1;
+    }
+    
+    .large-drop *{
+        background-color: white;
+        padding: 1em 0;
+        padding-left: 1em;
+        border-radius: .5em;
+        font-size: .85rem;
+        font-weight: 500;
+        text-align: start;
+        letter-spacing: 1px;
+        cursor: pointer;
+        border: none;
+    }
+
+
+    .large-drop *:is(:hover, :focus){
+        box-shadow: 1px 1px 5px gray;
+    } */
+
+}
+
+
+
+@media (min-width: 1020px){
+    .large-drop{
+        width: 475px;
+    }
+    .products {
+        grid-template-columns: repeat(4,1fr);
+    }
+
+}

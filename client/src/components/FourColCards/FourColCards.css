@@ -1,0 +1,56 @@
+.four-col-cards img{
+    display: block;
+    width: 100%;
+}
+
+
+.four-col-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em 1em;
+    /* padding: 0 1em; */
+    margin-top: 1.5em;
+}
+
+.card h4,
+.card p{
+    color: black;
+    font-size: var(--fs-100);
+    letter-spacing: 1px;
+    margin-top: 1em;
+}
+
+.card h4{
+    font-weight: var(--fw-black);
+}
+
+.card{
+    text-align: center;
+}
+
+@media (min-width: 767px){
+
+    .four-col-cards {
+        grid-template-columns: repeat(4,1fr);
+        /* padding: 0 2em; */
+    }
+    .card h4,
+    .card p{
+        font-size: var(--fs-200);
+    }
+}
+
+
+
+@media (min-width: 1020px){
+    .four-col-cards {
+        gap: 0 2em;
+    }
+
+
+    .card h4,
+    .card p{
+        font-size: var(--fs-200);
+    }
+
+}

@@ -1,0 +1,44 @@
+
+
+/* @media (min-width: 767px){ */
+
+    .open-down{
+        background-color: white;
+        outline: 2px solid #0870ce;
+        box-shadow: 1px 1px 5px gray;
+    }
+
+    .down-arrow{
+        font-size: 1.8em;
+        font-weight: 900;
+        margin-top: -1em;
+        margin-bottom: -1em;
+        pointer-events: none;
+    }
+
+    .large-flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .7em .5em;
+        opacity: .7;
+        border-top: 1px solid rgb(216, 214, 214);
+        border-bottom: 1px solid rgb(216, 214, 214);
+        cursor:pointer;
+        
+    }
+    
+    .large-flex p{
+        height: 20px;
+        font-size: .85rem;
+        letter-spacing: .5px;
+        font-weight: 500;
+        overflow: hidden;
+        
+    }
+
+    .large-flex:is(:hover, :focus){
+        color: #0870ce;
+    }
+
+/* } */

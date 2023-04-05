@@ -1,0 +1,22 @@
+
+.socials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    /* margin-top: 2em; */
+    border-top: 2px solid rgb(221, 221, 221);
+    padding: 1em 0;
+}
+
+.socials > *{
+    font-size: 1.5rem;
+}
+
+.socials a{
+    display: grid;
+}
+
+.socials > *:is(:hover, :focus){
+    opacity: .5;
+}

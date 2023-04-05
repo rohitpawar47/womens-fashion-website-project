@@ -1,0 +1,50 @@
+.news-letter-container{
+    width: 98%;
+    max-width: 500px;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+    display: grid;
+}
+
+.news-letter-container h1{
+    align-self: end;
+    padding-bottom: 2em;
+}
+
+form{
+    display: grid;
+    align-self: start;
+    gap: 1em 0;
+}
+
+form *{
+    border: none;
+}
+
+form input{
+    padding: 1.4em 2em;
+    letter-spacing: 1px;
+    border: 2px solid black;
+}
+
+form button{
+    padding: 1em 2em;
+    border: 2px solid black;
+    background-color: black;
+    color: #fff;
+    font-size: var(--fs-200);
+    font-weight: var(--fw-black);
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 250ms, color 250ms;
+}
+
+form button:is(:hover, :focus){
+    background-color: #fff;
+    color: black;
+}
+
+.block-btn{
+    pointer-events: none;
+}

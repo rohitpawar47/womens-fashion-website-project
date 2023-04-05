@@ -1,0 +1,60 @@
+:root {
+
+    /* Background Color */
+    --primary-bg-clr:rgb(255, 255, 255);
+    --footer-up-bg-clr: rgb(228,228,228);
+    --footer-down-bg-clr:rgb(221,221,221);
+    --red-banner-bg-clr: rgb(201,0 ,45);
+    --green-banner-bg-clr: rgb(156,240,223);
+    --magazine-bg-clr:rgb(244,237,221);
+
+    /* Font Color */
+    --fc-black: rgb(0,0,0);
+    --fc-white: rgb(225,225,225);
+    --fc-gray: rgb(47,46,46);
+    --fc-company-logo:#e50010;
+
+      /* addvertise color */
+  --clr-add-green: rgb(156, 240, 223);
+  --clr-add-neon: rgb(204, 251, 0);
+  --clr-add-red: rgb(255, 70, 92);
+
+    /* Font Size */
+    --fs-900: 5rem;
+    --fs-800: 3rem;
+    --fs-700: 2rem;
+    --fs-650: 1.6rem;
+    --fs-600: 1.7rem;
+    --fs-500: 1.5rem;
+    --fs-400: 1.25rem;
+    --fs-300: 1.125rem;
+    --fs-200: 1rem;
+    --fs-100: .85rem;
+    --fs-50: .80rem;
+
+    /* Font Weight */
+    --fw-black: 900;
+    --fw-bold: 700;
+    --fw-regular: 400;
+    --fw-light: 300;
+
+    /* Spacing */
+    --size-100: 0.25em;
+    --size-200: 0.5em;
+    --size-300: 0.75em;
+    --size-400: 1em;
+    --size-500: 1.5em;
+    --size-600: 2em;
+    --size-700: 2.5em;
+    --size-800: 3em;
+    --size-900: 3.5em;
+    --size-1000: 4em;
+    --size-2000: 4.5em;
+    --size-3000: 5em;
+    --size-4000: 5.5em;
+
+    /* Letter spacing */
+    
+    --letter-spacing: .6px;
+}
+

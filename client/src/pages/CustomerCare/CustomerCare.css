@@ -1,0 +1,28 @@
+.customer-care-container{
+    width: 98%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 100%;
+    display: grid;
+    text-align: center;
+}
+
+.customer-care-container> h1{
+    align-self: end;
+    padding-bottom: 1em;
+}
+
+.contact-wrapper p{
+    font-size: var(--fs-300);
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+}
+
+.phone{
+    font-size: var(--fs-500);
+}
+
+

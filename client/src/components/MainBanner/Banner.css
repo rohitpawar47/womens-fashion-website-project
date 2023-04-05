@@ -1,0 +1,93 @@
+
+.men-banner{
+    background-image: url("/Users/rohitpawar/Documents/desktop-copy-16-mar-2023/FE-projects/fashion-store/client/public/Images/men-banner-mob.avif");
+    width: 100%;
+    background-size: 100% 100%;
+    padding-top: 87%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    place-items: center;
+    margin-top: 1.5em;
+}
+.women-banner{
+    background-image: url("/Users/rohitpawar/Documents/desktop-copy-16-mar-2023/FE-projects/fashion-store/client/public/Images/female-banner-mob.avif");
+    width: 100%;
+    background-size: 100% 100%;
+    padding-top: 87%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    place-items: center;
+    margin-top: 1.5em;
+}
+
+.men-banner *,
+.women-banner * {
+    color: black;
+    letter-spacing: 2px;
+    background-color: white;
+    font-weight: var(--fw-black);
+}
+
+.men-banner h2,
+.women-banner h2{
+    font-size: var(--fs-700);
+    padding: .1em .3em;
+    position: relative;
+    bottom: 5rem;
+    margin-bottom: .2em;
+}
+
+.men-banner p,
+.women-banner p{
+    font-size: var(--fs-200);
+    padding: .6em .9em;
+    position: relative;
+    bottom: 4rem;
+    transition: background-color 250ms;
+}
+
+.men-banner p:is(:hover, :focus){
+    background-color: black;
+    color: white;
+}
+.women-banner p:is(:hover, :focus){
+    background-color: black;
+    color: white;
+}
+
+
+@media (min-width: 767px){
+    .men-banner{
+        background-image: url("/Users/rohitpawar/Documents/desktop-copy-16-mar-2023/FE-projects/fashion-store/client/public/Images/men-banner-desk.avif");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        width: 100%;
+        padding-top: 37%;
+    }
+    .women-banner{
+        background-image: url("/Users/rohitpawar/Documents/desktop-copy-16-mar-2023/FE-projects/fashion-store/client/public/Images/female-banner-desk.avif");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        width: 100%;
+        padding-top: 37%;
+        border-top: 0.6rem solid rgb(136 81 242);
+        border-right: 0.6rem solid var(--clr-add-neon);
+        border-left: 0.6rem solid var(--clr-add-red);
+        border-bottom: 0.6rem solid rgb(237 161 187);
+    }
+
+}
+
+@media (min-width: 1020px){
+    .men-banner h2,
+    .women-banner h2{
+        font-size: var(--fs-800);
+        font-weight: var(--fw-black);
+    }
+
+
+}

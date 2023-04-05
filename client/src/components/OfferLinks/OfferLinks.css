@@ -1,0 +1,16 @@
+.offer-links{
+    display: none;
+}
+
+
+@media (min-width: 767px){
+    .offer-links{
+        display: block;
+        text-align: center;
+        font-size: var(--fs-50);
+        padding-top: 0;
+        padding: var(--size-400) 0;
+        background-color: var(--clr-add-neon);
+    }
+}
+

@@ -1,0 +1,61 @@
+.fav-page-wrapper{
+    margin-top: 5.1em;
+    padding-bottom: 2em;
+}
+
+.saved-items{
+    background-color: rgb(237, 237, 237);;
+    border-top: 1px solid rgb(216, 214, 214);
+    border-bottom: 1px solid rgb(216, 214, 214);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-black);
+    letter-spacing: 2px;
+    padding: 1em 0;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.fav-grid{
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 260px));
+    gap: 2em 1em;
+    justify-content: center;
+}
+
+.move-to-bag-btn{
+    border: none;
+    border: 2px solid #018749;;
+    background-color: white;
+    font-size: var(--fs-100);
+    font-weight: var(--fw-black);
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    padding: .5em;
+    margin-top: .5em;
+}
+
+.move-to-bag-btn:is(:hover, :focus){
+    background-color: black;
+    color: white;
+}
+
+@media(min-width: 767px){
+    .fav-page-wrapper{
+        margin-top: 0;
+    }
+
+    .saved-items{
+        font-size: var(--fs-500);
+    }
+    .fav-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media(min-width: 1020px){
+    .fav-grid{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

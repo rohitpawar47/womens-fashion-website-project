@@ -1,0 +1,43 @@
+
+.home{
+    width: 95%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.home-main-banner{
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.home-featured-cards{
+    width: 93%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+
+
+@media (min-width: 767px){
+    .home-featured-cards{
+        width: 95%;
+        max-width: 1250px;
+        margin: 0 auto;
+    }
+}
+
+
+
+@media (min-width: 1020px){
+    .home-main-banner{
+        width: 95%;
+        max-width: 1250px;
+        margin: 0 auto;
+    }
+
+    .home-featured-cards{
+        width: 95%;
+        max-width: 1250px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,127 @@
+.signin-container{
+    position: relative;
+}
+
+.sign-in-wrapper{
+    width: 90%; 
+    max-width: 550px;
+    margin: 0 auto;
+    padding-top: 12em;
+}
+
+
+.signin-company-logo{
+    position: absolute;
+    left: 45%;
+    right: 45%;
+    top: 100px;
+    pointer-events: none;
+}
+
+.sign-in{
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #faf9f8;
+    padding: 5em 2em;
+    box-shadow: 1px 1px 5px gray;
+    
+}
+
+
+.sign-in h2{
+    text-align: center;
+    font-size: var(--fs-200);
+    font-weight: var(--fw-bold);
+    letter-spacing: 1.5px;
+    margin-bottom: 1em;
+}
+
+.sign-in form{
+    display: grid;
+    width: 100%;
+    justify-self: center;
+}
+
+.sign-in form *{
+    margin-bottom: 1em;
+}
+
+.sign-in form label{
+    font-size: var(--fs-100);
+    font-weight: var(--fw-black);
+    letter-spacing: 2px;
+    opacity: .6;
+}
+.sign-in form input{
+    font-size: var(--fs-200);
+    padding: .8em 0;
+    padding-left: .5em;
+    border: none;
+    border: 1px solid gray;
+}
+
+.signin-btn{
+    font-size: var(--fs-200);
+    font-weight: var(--fw-black);
+    letter-spacing: 2px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    margin-top: .8em;
+    border: none;
+    cursor: pointer;
+}
+
+.signin-btn:is(:hover, :focus){
+    opacity: .5;
+}
+
+.sign-in form p{
+    text-align: center;
+    letter-spacing: .5px;
+}
+
+.sign-in h3{
+    text-align: center;
+    margin: 2em 0;
+}
+
+.sign-in-option{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+}
+
+.option-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border: 2px solid rgba(0, 0, 0, .3);
+    padding: 1em 1.5em;
+    gap: .5em;
+}
+
+.option-btn > :first-child{
+    font-size: var(--fs-300);
+}
+
+.option-btn p{
+    font-size: var(--fs-100);
+    font-weight: var(--fw-black);
+    letter-spacing: 2px;
+}
+
+.registration-link{
+    color: blue;
+    text-decoration: underline;
+}
+
+@media (min-width: 767px){
+    .sign-in{
+        margin: 2em 0;
+    }
+    .option-btn{
+        gap: 1em;
+    }
+}

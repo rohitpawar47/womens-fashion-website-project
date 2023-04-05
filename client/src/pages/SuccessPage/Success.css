@@ -1,0 +1,33 @@
+.success-container{
+    width: 98%;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100vh;
+    height: 100dvh;
+    display: grid;
+}
+
+.success-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: .1px solid black;
+}
+
+.home-btn{
+    border: 2px solid black;
+    color: black;
+    font-size: var(--fs-300);
+    font-weight: var(--fw-black);
+    letter-spacing: 1px;
+    justify-self: center;
+    align-self: center;
+    padding: 1em 2em;
+    transition: background-color 250ms;
+}
+
+
+.home-btn:is(:hover, :focus){
+    background-color: black;
+    color: #fff;
+}

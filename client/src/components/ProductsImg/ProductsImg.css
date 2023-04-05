@@ -1,0 +1,52 @@
+.product-images-container{
+    position: relative;
+}
+
+.product-images{
+    display: block;
+    width: 100%;
+    /* min-height: 350px; */
+    object-fit: cover;
+}
+
+
+.heart-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: default;
+}
+
+.heart-wrapper p{
+    display: grid;
+}
+
+.heart-wrapper *{
+    font-size: 1.4rem;
+}
+
+.heart-wrapper:hover{
+    /* color: rgb(184, 184, 184); */
+    color: var(--fc-company-logo);
+}
+
+.selling-fast{
+    background-color: rgba(255, 255, 255, .5);
+    padding: .1em .5em;
+    position: absolute;
+    bottom: 18px;
+
+}
+
+.selling-fast *{
+    font-size: .7rem;
+    font-weight: var(--fw-black);
+    letter-spacing: 2px;
+}
