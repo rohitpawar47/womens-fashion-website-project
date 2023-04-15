@@ -53,8 +53,8 @@ export default function Cart() {
 
 
     function showSizeOrNot(i) {
-        if (i?.item?.attributes?.category === 'accessories' ||
-            i?.item?.attributes?.category === 'face-body') {
+        if (i?.item?.category === 'accessories' ||
+            i?.item?.category === 'face-body') {
             return <p>Size: No Size</p>
         } else {
             return <p>Size: {i.size}</p>

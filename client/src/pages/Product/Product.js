@@ -1,5 +1,4 @@
 import React from "react";
-import useFetch from "../../hooks/useFetch";
 import { Link, useParams } from "react-router-dom";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
