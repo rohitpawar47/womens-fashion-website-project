@@ -1,5 +1,5 @@
 
-.men-banner{
+/* .men-banner{
     background-image: url("/Users/rohitpawar/Documents/desktop-copy-16-mar-2023/FE-projects/fashion-store/client/public/Images/men-banner-mob.avif");
     width: 100%;
     background-size: 100% 100%;
@@ -9,9 +9,9 @@
     display: grid;
     place-items: center;
     margin-top: 1.5em;
-}
+} */
 .women-banner{
-    background-image: url("/Users/rohitpawar/Documents/desktop-copy-16-mar-2023/FE-projects/fashion-store/client/public/Images/female-banner-mob.avif");
+    background-image: url("/Users/rohitpawar/Documents/Demo-Websites/womens-fashion-website/client/public/Images/female-banner-mob.avif");
     width: 100%;
     background-size: 100% 100%;
     padding-top: 87%;
@@ -59,16 +59,16 @@
 
 
 @media (min-width: 767px){
-    .men-banner{
+    /* .men-banner{
         background-image: url("/Users/rohitpawar/Documents/desktop-copy-16-mar-2023/FE-projects/fashion-store/client/public/Images/men-banner-desk.avif");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
         width: 100%;
         padding-top: 37%;
-    }
+    } */
     .women-banner{
-        background-image: url("/Users/rohitpawar/Documents/desktop-copy-16-mar-2023/FE-projects/fashion-store/client/public/Images/female-banner-desk.avif");
+        background-image: url("/Users/rohitpawar/Documents/Demo-Websites/womens-fashion-website/client/public/Images/female-banner-desk.avif");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
