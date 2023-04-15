@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
         });
         return unsubscribe;
     }, [])
-    console.log(currentUser);
+
     return <UserContext.Provider value={{ currentUser, setCurrentUser }}>
         {children}
     </UserContext.Provider>
