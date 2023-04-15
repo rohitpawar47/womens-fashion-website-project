@@ -1,5 +1,5 @@
 .women-banner{
-    background-image: url("/Users/rohitpawar/Documents/Demo-Websites/womens-fashion-website/public/Images/female-banner-mob.avif");
+    background-image: url("https://raw.githubusercontent.com/rohitpawar47/womens-fashion-website-project/main/public/Images/female-banner-mob.avif");
     width: 100%;
     background-size: 100% 100%;
     padding-top: 87%;
@@ -44,7 +44,7 @@
 @media (min-width: 767px){
 
     .women-banner{
-        background-image: url("/Users/rohitpawar/Documents/Demo-Websites/womens-fashion-website/public/Images/female-banner-desk.avif");
+        background-image: url("https://raw.githubusercontent.com/rohitpawar47/womens-fashion-website-project/main/public/Images/female-banner-desk.avif");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
