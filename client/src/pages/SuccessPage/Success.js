@@ -1,5 +1,5 @@
 import React from "react";
-import { Context } from "../../AppContext";
+import { Context } from "../../contexts/AppContext";
 import { TiTick } from 'react-icons/ti';
 import { Link } from "react-router-dom";
 import './Success.css';

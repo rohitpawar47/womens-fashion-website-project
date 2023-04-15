@@ -2,7 +2,7 @@ import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import { RiUserLine, RiCloseLine } from "react-icons/ri";
-import { Context } from "../../AppContext";
+import { Context } from "../../contexts/AppContext";
 import { BiRightArrowAlt, BiDownArrowAlt } from "react-icons/bi";
 
 

@@ -1,16 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Cart.css';
-import { Context } from "../../AppContext";
+import { Context } from "../../contexts/AppContext";
 import { IoMdClose } from 'react-icons/io';
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaCcVisa, FaCcPaypal } from 'react-icons/fa';
 import { RiMastercardFill } from 'react-icons/ri';
 import { SiAmericanexpress } from 'react-icons/si';
-// import StripeButton from "../../components/CheckOut/CheckOut";
 
-import { loadStripe } from "@stripe/stripe-js";
 
 function MoveToFavourite({ moveToFavourite }) {
     const [hoverMoveToFav, setHoverMoveToFav] = React.useState(false);
@@ -67,10 +65,10 @@ export default function Cart() {
         <div className="cart-products cart-padding"
             key={(i.item.id + i.size)}>
             <Link to={`/product/${i.item.id}`} className="cart-product-img">
-                <img src={"http://localhost:1337" + i.item.attributes.image_1.data.attributes.url} alt="" /></Link>
+                <img src={i.item.image_1} alt="" /></Link>
             <div className="cart-product-detail">
-                <p>${i.item.attributes.price}</p>
-                <Link to={`/product/${i.item.id}`} >{i.item.attributes.name}</Link>
+                <p>${i.item.price}</p>
+                <Link to={`/product/${i.item.id}`} >{i.item.name}</Link>
                 <div className="cart-size-wrapper">
                     {showSizeOrNot(i)}
                     <select value={i.quantity} onChange={(e) => handleQuantityChange(e, i.item.id, i.size)}>
@@ -86,96 +84,37 @@ export default function Cart() {
     )
     )
 
-    const subTotal = cart.reduce((acc, item) => acc + item.item.attributes.price * item.quantity, 0).toFixed(2);
+    const subTotal = cart.reduce((acc, item) => acc + item.item.price * item.quantity, 0).toFixed(2);
 
-    // const allPrice = cart.map(i => i.item.attributes.price);
 
-    // function subTotal() {
-    //     let sum = 0;
-    //     for (let i = 0; i < allPrice.length; i++) {
-    //         if (cart.quantity > 0) {
-    //             sum = (sum + allPrice[i]) * cart.quantity;
-    //         } else {
-    //             sum = sum + allPrice[i];
-    //         }
-    //     }
-    //     return sum.toFixed(2);
-    // }
-    const stripePromise = loadStripe('pk_test_51MgRuqSDqe9LvfgquWXtQX9EfS0QsTigYFlfN0ebqaZmkGPU9FdV5Ys4QqHQbILS8ZV1QyKG0lHe3GfeCGriBEFj00f25ObKSB');
-    // const makeRequest = axios.create({
-    //     baseURL: 'http://localhost:1337/api',
-    //     headers: {
-    //         Authorization: "bearer " + '570ba3050638ac147209533104ba33ecdc9e23b1f4929d5116c591f3107b659247e45dc5e299b4c8e473362fc1ec767bd17959a23923d5d9b914b9b73e16497475ff02662c0148fe17878e132442a54c4e6633eb3187ecfb8ad6c4f0b82bf4ff161d4fc6ee52e43ec61caa75f39b7fe6ae7d2442fd32dbc8ec8bacf87e187d7a',
-    //     },
-    // });
 
-    const handlePayment = async () => {
-        try {
-            const stripe = await stripePromise;
-            const requestBody = {
-                // products: cart.map(({ id, quantity }) => ({
-                //     id,
-                //     quantity,
-                // })),
-                products: cart.map(i => ({
-                    id: i.item.id,
-                    name: i.item.attributes.name,
-                    quantity: i.quantity
-                }))
-            }
-            // const res = await makeRequest.post("/orders", {
-            //     products: cart.map(i => ({
-            //         id: i.item.id,
-            //         name: i.item.attributes.name,
-            //         quantity: i.quantity
-            //     }))
-            // });
-            // const test = JSON.stringify(requestBody)
-            // console.log([test].products);
-            const response = await fetch("http://localhost:1337/api/orders", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                // headers: {
-                //     Authorization: "bearer " + '570ba3050638ac147209533104ba33ecdc9e23b1f4929d5116c591f3107b659247e45dc5e299b4c8e473362fc1ec767bd17959a23923d5d9b914b9b73e16497475ff02662c0148fe17878e132442a54c4e6633eb3187ecfb8ad6c4f0b82bf4ff161d4fc6ee52e43ec61caa75f39b7fe6ae7d2442fd32dbc8ec8bacf87e187d7a',
-                // },
-                body: JSON.stringify(requestBody),
-            });
-
-            const session = await response.json();
-            console.log(session);
-            await stripe.redirectToCheckout({
-                sessionId: session.id.id,
-            });
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
-    // const handlePayment = async (token, amount) => {
-    //     const response = await fetch('http://localhost:3000/api/orders', {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({ token, amount }),
-    //     });
-    //     const data = await response.json();
-    //     return data;
-    // };
-
-    // // Call handlePayment function on checkout
-    // const onToken = async (token) => {
+    // const handlePayment = async () => {
     //     try {
-    //         const amount = subTotal; // replace with actual price
-    //         await handlePayment(token, amount);
-    //         alert('Payment Successful!');
-    //     } catch (error) {
-    //         console.log('Payment Error: ', error);
-    //         alert('Payment Error. Please try again.');
+    //         const stripe = await stripePromise;
+    //         const requestBody = {
+    //             products: cart.map(i => ({
+    //                 id: i.item.id,
+    //                 name: i.item.attributes.name,
+    //                 quantity: i.quantity
+    //             }))
+    //         }
+    //         const response = await fetch("http://localhost:1337/api/orders", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify(requestBody),
+    //         });
+
+    //         const session = await response.json();
+    //         console.log(session);
+    //         await stripe.redirectToCheckout({
+    //             sessionId: session.id.id,
+    //         });
+    //     } catch (err) {
+    //         console.log(err);
     //     }
     // };
-
 
     return (
-
         <>
             {
                 cart.length > 0 ?
@@ -186,7 +125,12 @@ export default function Cart() {
                         <div className="cart">
                             <div className="left-side">
                                 <h2 className="main-title cart-padding">MY BAG</h2>
-                                {cartProductsComp}
+                                {cart ?
+                                    <>
+                                        {cartProductsComp}
+                                    </> :
+                                    <h1>Loading...</h1>
+                                }
                                 <div className="cart-delivery-section">
                                     <TbTruckDelivery />
                                     <div className="cart-delivery-section-details">
@@ -213,10 +157,7 @@ export default function Cart() {
                                 </div>
 
                                 <Link to="#" className="cart-checkout"
-                                    onClick={handlePayment}>CHECKOUT</Link>
-                                {/* <StripeButton
-                                    onToken={onToken}
-                                    price={subTotal} /> */}
+                                >CHECKOUT</Link>
                                 <div className="cart-we-accepts">
                                     <p>WE ACCEPT:</p>
                                     <FaCcVisa className="cart-cc" />
@@ -236,18 +177,3 @@ export default function Cart() {
         </>
     )
 };
-
-
-// export default function CartOrCheck() {
-//     const [checkOut, setCheckOut] = React.useState(false);
-
-//     return (
-//         <>
-//             {
-//                 checkOut ?
-//                     <CheckOut /> :
-//                     <Cart switchToComp={() => setCheckOut(prevCheck => !prevCheck)} />
-//             }
-//         </>
-//     )
-// };

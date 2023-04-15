@@ -4,27 +4,21 @@ import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import useFetch from "../../hooks/useFetch";
 import useOutSideClick from "../../hooks/useOutSideClick";
-import { Context } from "../../AppContext";
-
+import { Context } from "../../contexts/AppContext";
+import useData from "../../hooks/useData";
 
 
 export function SearchInput(props) {
     const { query, setQuery, clickOutSearch } = useContext(Context);
     const inputRef = useRef(null);
-    const { loading, error, data } = useFetch(`http://localhost:1337/api/products/?populate=*&_q=${query}`)
+    const { products } = useData();
 
-    if (loading) {
-        <p>Loading...</p>
-    }
-    if (error) {
-        <p>Error :(</p>
-    }
-    const searchDropDown = data.map(item => (
+    const searchDropDown = products.map(item => (
         <Link
-            to={`/products?brand=${item.attributes.brand}&category=${item.attributes.category}`}
+            to={`/products?brand=${item.brand}&category=${item.category}`}
             onClick={() => clickOutSearch()}
             key={item.id}>
-            <p>{item.attributes.name}</p>
+            <p>{item.name}</p>
         </Link>
     ))
 

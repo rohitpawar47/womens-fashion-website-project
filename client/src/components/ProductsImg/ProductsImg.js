@@ -1,5 +1,5 @@
 import React from "react";
-import { Context } from "../../AppContext";
+import { Context } from "../../contexts/AppContext";
 import { NavLink } from "react-router-dom";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import useHover from "../../hooks/useHover";
@@ -24,15 +24,23 @@ export default function ProductsComp({ img }) {
 
     function imageHovered() {
         if (hovered) {
-            return <img
-                className="product-images"
-                src={"http://localhost:1337" + img?.attributes?.image_2?.data?.attributes?.url}
-                alt="" />
+            return <img className="product-images"
+                src={img.image_1} alt=""
+            />
+
+            // <img
+            //     className="product-images"
+            //     src={"http://localhost:1337" + img?.attributes?.image_2?.data?.attributes?.url}
+            //     alt="" />
         } else {
-            return <img
-                className="product-images"
-                src={"http://localhost:1337" + img?.attributes?.image_1?.data?.attributes?.url}
-                alt="" />
+            return <img className="product-images"
+                src={img.image_2} alt=""
+            />
+
+            // <img
+            //     className="product-images"
+            //     src={"http://localhost:1337" + img?.attributes?.image_1?.data?.attributes?.url}
+            //     alt="" />
         }
     };
 

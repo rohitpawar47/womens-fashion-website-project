@@ -1,14 +1,15 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import "./Header.css"
-import { HiDotsHorizontal } from "react-icons/hi";
-import { TfiMenu } from "react-icons/tfi";
-import { Context } from "../../AppContext";
-import MobNavigation from "./MobNavigation";
-import { RiUserLine, RiHeart3Line, RiShoppingBag2Line, RiSearch2Line, RiCloseLine, RiCustomerServiceLine } from "react-icons/ri";
 import { BiNews } from 'react-icons/bi';
+import { TfiMenu } from "react-icons/tfi";
+import { RiUserLine, RiHeart3Line, RiShoppingBag2Line, RiSearch2Line, RiCloseLine, RiCustomerServiceLine } from "react-icons/ri";
+
+import { Context } from "../../contexts/AppContext";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+import MobNavigation from "./MobNavigation";
 import { SearchInput } from "../HoverMenu/HoverMenu";
 import useOutSideClick from "../../hooks/useOutSideClick";
+import "./Header.css"
 
 
 export function CompanyLogo() {
@@ -24,6 +25,7 @@ export default function Header() {
         winWidth: window.innerWidth
     });
     const { navShadow, setNavShadow, menuSlide, downloadApp, dropDownloadLink, cart, clickOutSearch } = React.useContext(Context);
+
 
 
     const windowWidth = () => {
@@ -81,7 +83,9 @@ export default function Header() {
             <>
                 {
                     profileComp &&
-                    <Link to="signin" onClick={() => localStorage.removeItem("user")} className="profile-drop">Logout
+                    // <Link to="signin" onClick={() => localStorage.removeItem("user")} className="profile-drop">Logout
+                    // </ Link>
+                    <Link to="signin" onClick={signOutUser} className="profile-drop">Logout
                     </ Link>
                     // <>{profileHandle()}</>
 

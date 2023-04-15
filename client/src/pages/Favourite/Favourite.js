@@ -1,6 +1,6 @@
 import React from "react";
 import './Favourite.css';
-import { Context } from "../../AppContext";
+import { Context } from "../../contexts/AppContext";
 import { PageItems, ProductCard } from "../Products/Products";
 
 export default function Favourite() {

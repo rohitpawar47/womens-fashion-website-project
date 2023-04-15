@@ -6,7 +6,8 @@
     width: 90%; 
     max-width: 550px;
     margin: 0 auto;
-    padding-top: 12em;
+    padding-top: 11em;
+    /* padding-bottom: 5em; */
 }
 
 
@@ -15,16 +16,16 @@
     left: 45%;
     right: 45%;
     top: 100px;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .sign-in{
     display: grid;
     grid-template-columns: 1fr;
     background-color: #faf9f8;
-    padding: 5em 2em;
     box-shadow: 1px 1px 5px gray;
-    
+    margin: 2em 0;
+    padding: 3em;
 }
 
 
@@ -70,11 +71,18 @@
     padding: 1em;
     margin-top: .8em;
     border: none;
+    border: 2px solid black;
     cursor: pointer;
+    transition: background-color 250ms, color 250ms;
 }
 
 .signin-btn:is(:hover, :focus){
-    opacity: .5;
+    background-color: white;
+    color: black;
+}
+
+.google-btn{
+    margin-top: -.8em;
 }
 
 .sign-in form p{
@@ -117,11 +125,8 @@
     text-decoration: underline;
 }
 
-@media (min-width: 767px){
-    .sign-in{
-        margin: 2em 0;
-    }
+/* @media (min-width: 767px){
     .option-btn{
         gap: 1em;
     }
-}
+} */

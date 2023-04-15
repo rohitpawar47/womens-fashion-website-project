@@ -1,11 +1,12 @@
 import React from "react";
-import "./Products.css";
+import { RxReset } from "react-icons/rx";
 import { Link, useSearchParams } from "react-router-dom";
+
 import ProductsImg from "../../components/ProductsImg/ProductsImg";
 import ProductsFilter from "../../components/ProductsFilter/ProductsFilter";
 import useFetch from "../../hooks/useFetch";
-import { RxReset } from "react-icons/rx";
-
+import useData from "../../hooks/useData";
+import "./Products.css";
 
 
 export function ProductCard({ data, button }) {
@@ -19,8 +20,8 @@ export function ProductCard({ data, button }) {
             key={img.id}
             className="product-card">
             <ProductsImg img={img} />
-            <p className="product-name">{img.attributes.name}</p>
-            <p className="product-price">${img.attributes.price}</p>
+            <p className="product-name">{img.name}</p>
+            <p className="product-price">${img.price}</p>
             {button}
         </Link>
     ))
@@ -50,30 +51,44 @@ export default function Products() {
     const [priceSorting, setPriceSorting] = React.useState('asc');
     const [readMore, setReadMore] = React.useState(true);
     const [searchParams, setSearchParams] = useSearchParams();
-    const { loading, error, data } = useFetch(`http://localhost:1337/api/products?populate=*&sort=createdAt:ASC`);
+    const { products } = useData();
+    // const { loading, error, data } = useFetch(`http://localhost:1337/api/products?populate=*&sort=createdAt:ASC`);
 
-    if (loading) {
-        <p>Loading...</p>
-    }
-    if (error) {
-        <p>Error :(</p>
-    }
+    // if (loading) {
+    //     <p>Loading...</p>
+    // }
+    // if (error) {
+    //     <p>Error :(</p>
+    // }
 
 
     const brandFilter = searchParams.get('brand');
     const catFilter = searchParams.get('category');
     const sorting = searchParams.get('sort');
 
+    // const displayedProducts = brandFilter || catFilter ?
+    //     data.filter((item) =>
+    //         (!brandFilter || item.attributes.brand === brandFilter) &&
+    //         (!catFilter || item.attributes.category === catFilter)) :
+    //     data;
+
+    // const sortedAndFilteredData = sorting ? (priceSorting === 'desc' ?
+    //     displayedProducts.sort((a, b) => b.attributes.price - a.attributes.price) :
+    //     displayedProducts.sort((a, b) => a.attributes.price - b.attributes.price)
+    // ) : displayedProducts;
+
     const displayedProducts = brandFilter || catFilter ?
-        data.filter((item) =>
-            (!brandFilter || item.attributes.brand === brandFilter) &&
-            (!catFilter || item.attributes.category === catFilter)) :
-        data;
+        products.filter((item) => (
+            (!brandFilter || item.brand === brandFilter) &&
+            (!catFilter || item.category === catFilter)
+        )) :
+        products;
 
     const sortedAndFilteredData = sorting ? (priceSorting === 'desc' ?
-        displayedProducts.sort((a, b) => b.attributes.price - a.attributes.price) :
-        displayedProducts.sort((a, b) => a.attributes.price - b.attributes.price)
+        displayedProducts.sort((a, b) => b.price - a.price) :
+        displayedProducts.sort((a, b) => a.price - b.price)
     ) : displayedProducts;
+
 
 
     function handleBrands(key, value) {
@@ -152,6 +167,8 @@ export default function Products() {
             <button style={{ textDecoration: "underline" }} onClick={() => handleBrands('brand', null)}>Clear Filter</button>
         </nav>
 
+
+
     return (
         <div className="products-page">
             <div className="products-headline">
@@ -203,17 +220,20 @@ export default function Products() {
                 </div>
             </div>
 
-            <PageItems data={sortedAndFilteredData} />
-
-
-            <div className="products-wrapper">
-                <div className="products"
-                >
-                    <ProductCard
-                        data={sortedAndFilteredData}
-                    />
-                </div>
-            </div>
+            {products.length > 0 ?
+                <>
+                    <PageItems data={sortedAndFilteredData} />
+                    <div className="products-wrapper">
+                        <div className="products"
+                        >
+                            <ProductCard
+                                data={sortedAndFilteredData}
+                            />
+                        </div>
+                    </div>
+                </> :
+                <h1>Loading...</h1>
+            }
 
         </div>
     )

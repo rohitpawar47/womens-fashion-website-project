@@ -1,23 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 const Context = React.createContext();
 
-function ContextProvider({ children }) {
-    const [navShadow, setNavShadow] = React.useState(false);
-    // const [subMenu, setSubMenu] = React.useState(false);
-    const [downloadApp, setDownloadApp] = React.useState(false);
-    const storeFav = JSON.parse(localStorage.getItem("favourite")) || [];
-    const [favourite, setFavourite] = React.useState(storeFav);
-    const storeCart = JSON.parse(localStorage.getItem('cart')) || [];
-    const [cart, setCart] = React.useState(storeCart);
-    const [titleToSort, setTitleToSort] = React.useState("createdAt");
-    const [ascending, setAscending] = React.useState('ASC');
-    const [priceGreater, setPriceGreater] = React.useState('gt');
-    const [priceLesser, setPriceLesser] = React.useState('lt');
-    const [priceAmountAbove, setPriceAmountAbove] = React.useState(0);
-    const [priceAmountBelow, setPriceAmountBelow] = React.useState(999999);
-    const [size, setSize] = React.useState(null);
-    const [query, setQuery] = React.useState('');
 
+function ContextProvider({ children }) {
+    const [navShadow, setNavShadow] = useState(false);
+    // const [subMenu, setSubMenu] = React.useState(false);
+    const [downloadApp, setDownloadApp] = useState(false);
+    const storeFav = JSON.parse(localStorage.getItem("favourite")) || [];
+    const [favourite, setFavourite] = useState(storeFav);
+    const storeCart = JSON.parse(localStorage.getItem('cart')) || [];
+    const [cart, setCart] = useState(storeCart);
+    const [titleToSort, setTitleToSort] = useState("createdAt");
+    const [ascending, setAscending] = useState('ASC');
+    const [priceGreater, setPriceGreater] = useState('gt');
+    const [priceLesser, setPriceLesser] = useState('lt');
+    const [priceAmountAbove, setPriceAmountAbove] = useState(0);
+    const [priceAmountBelow, setPriceAmountBelow] = useState(999999);
+    const [size, setSize] = useState(null);
+    const [query, setQuery] = useState('');
 
 
     function sizeQtyHandler(event) {
@@ -49,7 +49,7 @@ function ContextProvider({ children }) {
     };
 
 
-    React.useEffect(() => {
+    useEffect(() => {
         localStorage.setItem("favourite", JSON.stringify(favourite));
     }, [favourite]);
 
@@ -60,7 +60,7 @@ function ContextProvider({ children }) {
         setFavourite(prevFav => prevFav.filter(item => item.id !== id))
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
     }, [cart])
 
@@ -80,7 +80,7 @@ function ContextProvider({ children }) {
         // setSubMenu(false);
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (navShadow) {
             document.body.classList.add('app-scroll-hidden');
         } else {
