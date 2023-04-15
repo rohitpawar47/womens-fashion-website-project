@@ -25,7 +25,7 @@ export default function ProductsComp({ img }) {
     function imageHovered() {
         if (hovered) {
             return <img className="product-images"
-                src={img.image_1} alt=""
+                src={img.image_2} alt=""
             />
 
             // <img
@@ -34,7 +34,7 @@ export default function ProductsComp({ img }) {
             //     alt="" />
         } else {
             return <img className="product-images"
-                src={img.image_2} alt=""
+                src={img.image_1} alt=""
             />
 
             // <img
