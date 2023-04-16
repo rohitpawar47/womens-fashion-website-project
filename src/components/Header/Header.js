@@ -10,6 +10,7 @@ import MobNavigation from "./MobNavigation";
 import { SearchInput } from "../HoverMenu/HoverMenu";
 import useOutSideClick from "../../hooks/useOutSideClick";
 import "./Header.css"
+import { UserContext } from "../../contexts/UserContext";
 
 
 export function CompanyLogo() {
@@ -24,14 +25,16 @@ export default function Header() {
     const [windowSize, setWindowSize] = React.useState({
         winWidth: window.innerWidth
     });
-    const { navShadow, setNavShadow, menuSlide, downloadApp, dropDownloadLink, cart, clickOutSearch } = React.useContext(Context);
+    const { navShadow, setNavShadow, menuSlide, cart, clickOutSearch } = React.useContext(Context);
+    const { currentUser } = useContext(UserContext);
 
 
 
-    const windowWidth = () => {
+    const handleCloseSearch = () => {
         clickOutSearch();
         setSearchClick(!searchClick);
     }
+
     function detectSize() {
         setWindowSize({ winWidth: window.innerWidth });
     };
@@ -64,30 +67,28 @@ export default function Header() {
 
 
 
+    const menuRef = useRef(null);
+
     const profileDropHandle = () => {
         setProfileComp(prevPro => !prevPro);
     }
-    const menuRef = useRef(null);
+
     useOutSideClick(menuRef, profileDropHandle, profileComp);
+
     function profileDrop() {
-        // const local = localStorage.getItem("user");
-        // function profileHandle() {
-        //     if (local !== {}) {
-        //         return <Link to="signin" onClick={() => localStorage.removeItem("user")} className="profile-drop">Logout
-        //         </ Link>
-        //     } else {
-        //         return <button onClick={() => nav("/signin")}>Sign In</button>
-        //     }
-        // }
         return (
             <>
                 {
-                    profileComp &&
-                    // <Link to="signin" onClick={() => localStorage.removeItem("user")} className="profile-drop">Logout
-                    // </ Link>
-                    <Link to="signin" onClick={signOutUser} className="profile-drop">Logout
-                    </ Link>
-                    // <>{profileHandle()}</>
+                    profileComp && (
+                        <div className="profile-drop">
+                            {currentUser ?
+                                <Link to="signin" onClick={signOutUser} className='go-to-signin'>Sign out
+                                </ Link> :
+                                <Link to="signin" onClick={signOutUser} className='go-to-signin'>Sign in
+                                </ Link>}
+                            <Link to='signup' className="join-link">Not a mumber yet? Join here!</Link>
+                        </div>
+                    )
 
                 }
             </>
@@ -115,14 +116,14 @@ export default function Header() {
                 <MobNavigation navRef={navRef} />
 
                 <CompanyLogo />
-                <div className="first-nav-right" >
+                <div className="first-nav-right" style={{ position: "relative" }} >
                     <button
                         className="mobile-search"
                         onClick={() => setSearchClick(!searchClick)}
                     >
                         <RiSearch2Line className="profile-icons search-icon" />
                     </button>
-                    <div style={{ position: "relative" }} ref={menuRef}>
+                    <div ref={menuRef}>
                         <button onClick={profileDropHandle}
 
                             className="profile-wrapper"><RiUserLine className="profile-icons" /><p>Profile</p></button>
@@ -150,7 +151,7 @@ export default function Header() {
                     />
                     <RiCloseLine
                         className="close-icon-inside-box"
-                        onClick={windowWidth} />
+                        onClick={handleCloseSearch} />
                 </div>
             }
         </header >

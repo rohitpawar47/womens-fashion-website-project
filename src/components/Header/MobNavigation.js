@@ -40,7 +40,6 @@ export default function MobNavigation(props) {
 
     const { navShadow, menuSlide, closeOnClickMob } = React.useContext(Context);
 
-
     const clothings =
         <>
             <Link to={'/products'}>View all</Link>
@@ -62,10 +61,9 @@ export default function MobNavigation(props) {
             <Link to={"/products?brand=Never+Fully+Dressed"}>Never Fully Dressed</Link>
         </>
 
-
     return (
-        <div className={`nav ${navShadow ? "" : "navigation-open"}`}>
-            <ul className="nav-list" ref={props.navRef} >
+        <div className={`nav ${navShadow ? "" : "navigation-open"}`} >
+            <ul className="nav-list" ref={props.navRef}>
                 <Link to={"/signin"}
                     onClick={closeOnClickMob}
                     className="drop-nav-profile">
@@ -78,6 +76,7 @@ export default function MobNavigation(props) {
                 <DropMenu
                     title="Clothings"
                     dropMenuList={clothings}
+
                 />
                 <DropMenu
                     title="Brands"

@@ -65,6 +65,7 @@ export default function Products() {
     const brandFilter = searchParams.get('brand');
     const catFilter = searchParams.get('category');
     const sorting = searchParams.get('sort');
+    const searchQuery = searchParams.get('q');
 
     // const displayedProducts = brandFilter || catFilter ?
     //     data.filter((item) =>
@@ -76,19 +77,21 @@ export default function Products() {
     //     displayedProducts.sort((a, b) => b.attributes.price - a.attributes.price) :
     //     displayedProducts.sort((a, b) => a.attributes.price - b.attributes.price)
     // ) : displayedProducts;
+    const searchFilter = searchQuery ?
+        products.filter(i => i.name.toLowerCase().includes(searchQuery.toLowerCase())) :
+        products;
 
     const displayedProducts = brandFilter || catFilter ?
-        products.filter((item) => (
+        searchFilter.filter((item) => (
             (!brandFilter || item.brand === brandFilter) &&
             (!catFilter || item.category === catFilter)
         )) :
-        products;
+        searchFilter;
 
     const sortedAndFilteredData = sorting ? (priceSorting === 'desc' ?
         displayedProducts.sort((a, b) => b.price - a.price) :
         displayedProducts.sort((a, b) => a.price - b.price)
     ) : displayedProducts;
-
 
 
     function handleBrands(key, value) {
@@ -179,6 +182,7 @@ export default function Products() {
                     onClick={() => setReadMore(prevRead => !prevRead)}
                 >{readMore ? 'View more' : "View less"}</h3>
             </div>
+
 
             <div className="products-filter-main">
                 <div className="products-filter-center">

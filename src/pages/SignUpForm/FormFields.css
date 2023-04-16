@@ -6,7 +6,7 @@
     width: 90%; 
     max-width: 550px;
     margin: 0 auto;
-    padding-top: 11em;
+    padding-top: 5em;
     /* padding-bottom: 5em; */
 }
 
@@ -15,7 +15,7 @@
     position: absolute;
     left: 45%;
     right: 45%;
-    top: 100px;
+    top: 13.5px;
     /* pointer-events: none; */
 }
 

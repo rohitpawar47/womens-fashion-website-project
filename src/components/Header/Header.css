@@ -117,22 +117,37 @@
 }
 
 .profile-drop{
-    font-weight: var(--fw-black);
     position: absolute;
-    top: 30px;
-    background-color: white;
-    padding: .5em 2em;
+    top: 40px;
+    right: 50%;
+    padding: 1em;
+    width: 100%;
     box-shadow: 1px 1px 5px gray;
-    border-radius: 50px;
-    text-decoration: underline;
     letter-spacing: .5px;
-    transition: background-color 225ms;
     z-index: 1;
+    display: grid;
+    gap: 1em;
+    background-color: white;
 }
 
-.profile-drop:is(:hover, :focus){
+.go-to-signin{
+    font-size: var(--fs-200);
+    font-weight: var(--fw-black);
+    padding: .5em 2em;
+    transition: background-color 225ms;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.go-to-signin:is(:hover, :focus){
     background-color: black;
     color: white;
+}
+
+.join-link{
+    font-size: .68rem;
+    text-decoration: underline;
+    letter-spacing: 1px;
 }
 
 .profile-wrapper p {
@@ -370,6 +385,12 @@ ul{
 @media (min-width: 1020px){
 
     /* .head::before{ display: none;} */
+
+    .profile-drop{
+        top: 80%;
+        right: 75%;
+        width: 60%;
+    }
 
     .company-logo *{ 
         font-size: var(--fs-800);

@@ -1,36 +1,54 @@
-import React, { useContext, useRef } from "react";
+import React, { useRef } from "react";
 import "./HoverMenu.css";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
-import useFetch from "../../hooks/useFetch";
 import useOutSideClick from "../../hooks/useOutSideClick";
-import { Context } from "../../contexts/AppContext";
 import useData from "../../hooks/useData";
+import { Context } from "../../contexts/AppContext";
 
 
 export function SearchInput(props) {
-    const { query, setQuery, clickOutSearch } = useContext(Context);
+    const [filteredData, setFilteredData] = React.useState([]);
+    const { query, setQuery } = React.useContext(Context);
     const inputRef = useRef(null);
     const { products } = useData();
 
-    const searchDropDown = products.map(item => (
+    const closeOnClick = () => {
+        setFilteredData([]);
+        // setQuery('');
+    };
+
+    const handleChangeSearch = (event) => {
+        const searchValue = event.target.value;
+        setQuery(searchValue);
+        const searchFilter = products.filter((i) => {
+            return i.name.toLowerCase().includes(searchValue.toLowerCase());
+        });
+        if (searchValue === '') {
+            setFilteredData([]);
+        } else {
+            setFilteredData(searchFilter);
+        }
+    };
+
+    const searchDropDown = filteredData.map(item => (
         <Link
-            to={`/products?brand=${item.brand}&category=${item.category}`}
-            onClick={() => clickOutSearch()}
+            to={`/products?q=${query}`}
+            // onClick={() => closeOnClick()}
             key={item.id}>
             <p>{item.name}</p>
         </Link>
     ))
 
     React.useEffect(() => {
-        if (query.length > 0) {
+        if (filteredData.length > 0) {
             document.body.classList.add('app-scroll-hidden');
         } else {
             document.body.classList.remove('app-scroll-hidden');
         }
-    }, [query]);
+    }, [filteredData]);
 
-    useOutSideClick(inputRef, clickOutSearch, query);
+    useOutSideClick(inputRef, closeOnClick, query);
 
     return (
         <>
@@ -39,10 +57,12 @@ export function SearchInput(props) {
                 className={props.classInput}
                 type="text"
                 placeholder="Search products"
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={handleChangeSearch}
+                name={query}
+                value={query}
             />
             {
-                query.length > 1 ?
+                filteredData.length > 1 ?
                     <div className={props.classDrop}>
                         {searchDropDown}
                     </div>
