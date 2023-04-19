@@ -133,7 +133,7 @@
 .go-to-signin{
     font-size: var(--fs-200);
     font-weight: var(--fw-black);
-    padding: .5em 2em;
+    padding: .2em 1em;
     transition: background-color 225ms;
     text-align: center;
     border: 1px solid black;
@@ -387,10 +387,15 @@ ul{
     /* .head::before{ display: none;} */
 
     .profile-drop{
+
         top: 80%;
         right: 75%;
         width: 60%;
     }
+
+    .go-to-signin{
+    padding: .5em 2em;
+}
 
     .company-logo *{ 
         font-size: var(--fs-800);

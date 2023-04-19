@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Elements } from '@stripe/react-stripe-js';
 
 
 import { ContextProvider } from './contexts/AppContext';
 import { UserProvider } from './contexts/UserContext';
+import { stripePromise } from './utils/firebase/stripe.utils';
 import App from './App';
 
 
@@ -19,7 +21,9 @@ root.render(
   <ContextProvider >
     <UserProvider>
       <BrowserRouter>
-        <App />
+        <Elements stripe={stripePromise}>
+          <App />
+        </Elements>
         <ToastContainer />
       </BrowserRouter>
     </UserProvider>

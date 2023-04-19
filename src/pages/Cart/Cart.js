@@ -8,6 +8,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { FaCcVisa, FaCcPaypal } from 'react-icons/fa';
 import { RiMastercardFill } from 'react-icons/ri';
 import { SiAmericanexpress } from 'react-icons/si';
+// import Checkout from "../Checkout/Checkout";
 
 
 function MoveToFavourite({ moveToFavourite }) {
@@ -24,12 +25,18 @@ function MoveToFavourite({ moveToFavourite }) {
     )
 }
 
+export const useAmount = () => {
+    const { cart } = React.useContext(Context);
 
+    const total = cart.reduce((acc, item) => acc + item.item.price * item.quantity, 0).toFixed(2);
+
+    return { total }
+};
 
 export default function Cart() {
 
     const { cart, setCart, removeFromCart, favourite, addToFav } = React.useContext(Context);
-
+    const { total } = useAmount();
     function moveToFavourite(fav) {
         const alreadyFav = favourite.some(item => item.id === fav.item.id);
         if (!alreadyFav) {
@@ -114,6 +121,7 @@ export default function Cart() {
     //     }
     // };
 
+
     return (
         <>
             {
@@ -144,7 +152,7 @@ export default function Cart() {
                                 <h2>TOTAL</h2>
                                 <div className="sub-total-flex">
                                     <p>Order value</p>
-                                    <p>${subTotal}</p>
+                                    <p>${total}</p>
                                 </div>
                                 <div className="sub-total-flex">
                                     <p>Delivery</p>
@@ -153,10 +161,10 @@ export default function Cart() {
                                 <hr />
                                 <div className="cart-total">
                                     <p>Total</p>
-                                    <p>${subTotal}</p>
+                                    <p>${total}</p>
                                 </div>
 
-                                <Link to="#" className="cart-checkout"
+                                <Link to="/checkout" className="cart-checkout"
                                 >CHECKOUT</Link>
                                 <div className="cart-we-accepts">
                                     <p>WE ACCEPT:</p>

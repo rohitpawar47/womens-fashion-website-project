@@ -15,6 +15,7 @@ import SignUpForm from './pages/SignUpForm/SignUpForm';
 import SignInForm from './pages/SignUpForm/SignInForm';
 import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes';
 import './App.css';
+import Checkout from './pages/Checkout/Checkout';
 
 
 
@@ -39,6 +40,7 @@ function App() {
         <Route path='success' element={<Success />} />
         <Route path='signin' element={<SignInForm />} />
         <Route path='signup' element={<SignUpForm />} />
+        <Route path='checkout' element={<Checkout />} />
       </Routes>
     </>
   );
