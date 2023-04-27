@@ -113,7 +113,7 @@ export default function Header() {
                     <TfiMenu className="hamburger-icon" />
                 </div>
 
-                <MobNavigation navRef={navRef} />
+                <MobNavigation />
 
                 <CompanyLogo />
                 <div className="first-nav-right" style={{ position: "relative" }} >
@@ -129,15 +129,13 @@ export default function Header() {
                             className="profile-wrapper"><RiUserLine className="profile-icons" /><p>Profile</p></button>
                         {profileDrop()}
                     </div>
-                    {/* <Link to={"/signin"}
-                        className="profile-wrapper">
-                        <RiUserLine className="profile-icons person-icon" />
-                        <p>Sign in</p></Link> */}
                     <Link to={"/favourite"}
-                        className="profile-wrapper"> <RiHeart3Line className="profile-icons" /> <p>Favourites</p></Link>
+                        className="profile-wrapper"> <RiHeart3Line className="profile-icons" /> <p>Favourites</p>
+                    </Link>
 
                     <Link to={`/cart`}
-                        className="profile-wrapper"><RiShoppingBag2Line className="profile-icons" /><p>Shopping bag ({cart.length})</p> </Link>
+                        className="profile-wrapper"><RiShoppingBag2Line className="profile-icons" /><p>Shopping bag ({cart.length})</p>
+                    </Link>
 
                 </div>
             </nav >

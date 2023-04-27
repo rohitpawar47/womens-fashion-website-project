@@ -15,7 +15,9 @@
 }
 
 .checkout-container form h2{
-    letter-spacing: .8px;
+    font-size: var(--fs-300);
+    font-weight: var(--fw-black);
+    letter-spacing: 2.3px;
     text-align: center;
 }
 
@@ -23,4 +25,9 @@
     font-weight: 900;
     opacity: .6;
     letter-spacing: .8px;
+}
+
+.checkout-back-btn{
+    font-size: var(--fs-700);
+    cursor: pointer;
 }

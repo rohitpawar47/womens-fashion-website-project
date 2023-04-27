@@ -196,6 +196,7 @@
     transform: translateX(0);
     transition: transform 250ms;
     z-index: 100;
+    display: flex;
 }
 
 .navigation-open,
@@ -323,21 +324,20 @@ ul{
     z-index: 230;
     overflow-y: scroll;
     overflow-x: hidden;
-    
 }
 
 .close-icon{
     position: absolute;
-    top: 46%;
-    bottom: 0;
-    left: 100%;
     right: 0;
-    cursor: pointer;
     z-index: 999;
+    width: 20%;
+    height: 100vh;
 }
 
 .close-icon-mob{
     position: fixed;
+    top: 50%;
+    cursor: pointer;
     font-size: var(--fs-700);
     color: #fff;
     margin-left: .5em;
@@ -357,7 +357,10 @@ ul{
 
 @media (min-width: 767px) {
 
-    
+    .close-icon{
+        width: 50%;
+    }
+
     .nav-list{z-index: 1;}
     
     .head::before{ z-index: 0;}
@@ -365,14 +368,9 @@ ul{
     
     .first-nav{
         position: static;
-        /* padding: var(--size-400) var(--size-500); */
         box-shadow: none;
     }
     
-    /* .search-box{
-        padding: 1.29em .8em;
-
-    } */
     .nav-list,
     .sub-menu-slider{
         position: absolute;

@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { CardElement, AddressElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
+import { BiArrowBack } from 'react-icons/bi';
 
 import { useAmount } from '../Cart/Cart';
 import { Context } from '../../contexts/AppContext';
@@ -28,17 +29,11 @@ export default function Checkout() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ amount: total * 100 })
-        }).then(function (res) {
-            return res.json();
-        })
-        // .then((res) => res.json())
+            body: JSON.stringify({ amount: Math.round(total * 100) })
+        }).then((res) => res.json())
 
         // const clientSecret = response.paymentIntent.client_secret;
-        const { paymentIntent: { client_secret }, } = response;
-
-
-
+        const { paymentIntent: { client_secret } } = response;
 
 
         const paymentResult = await stripe.confirmCardPayment(client_secret, {
@@ -99,6 +94,7 @@ export default function Checkout() {
     return (
         <div className="checkout-container">
             <form action="" onSubmit={paymentHandler}>
+                <BiArrowBack className='checkout-back-btn' onClick={() => navigate('/cart')} />
                 <h2>PAYMENT</h2>
                 <label htmlFor="">SHIPPING ADDRESS:</label>
                 <AddressElement options={{

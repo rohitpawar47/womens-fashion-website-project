@@ -90,12 +90,12 @@ export default function MobNavigation(props) {
                     title='Face + Body'
                     dropMenuList={<Link to={'/products?category=face-body'}>Face + Body</Link>}
                 />
-                <div
-                    className="close-icon"
-                    onClick={menuSlide}>
-                    <RiCloseLine className="close-icon-mob" />
-                </div>
             </ul>
+            <div
+                className="close-icon"
+                onClick={menuSlide}>
+                <RiCloseLine className="close-icon-mob" />
+            </div>
 
         </div>
     )

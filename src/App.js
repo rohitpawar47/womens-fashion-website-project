@@ -14,8 +14,9 @@ import CustomerCare from './pages/CustomerCare/CustomerCare';
 import SignUpForm from './pages/SignUpForm/SignUpForm';
 import SignInForm from './pages/SignUpForm/SignInForm';
 import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes';
-import './App.css';
+import ForbiddenRoutes from './components/ProtectedRoutes/ForbiddenRoutes';
 import Checkout from './pages/Checkout/Checkout';
+import './App.css';
 
 
 
@@ -37,10 +38,12 @@ function App() {
           </Route >
 
         </Route>
-        <Route path='success' element={<Success />} />
+        <Route element={<ForbiddenRoutes />}>
+          <Route path='success' element={<Success />} />
+          <Route path='checkout' element={<Checkout />} />
+        </Route>
         <Route path='signin' element={<SignInForm />} />
         <Route path='signup' element={<SignUpForm />} />
-        <Route path='checkout' element={<Checkout />} />
       </Routes>
     </>
   );
