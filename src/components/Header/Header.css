@@ -160,6 +160,7 @@
 
 .profile-icons{
     font-size: var(--fs-600);
+    color: var(--fc-black);
 }
 
 .mobile-search{
