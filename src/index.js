@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Elements } from '@stripe/react-stripe-js';
-
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 import { ContextProvider } from './contexts/AppContext';
 import { UserProvider } from './contexts/UserContext';
@@ -30,3 +30,5 @@ root.render(
   </ContextProvider>
 
 );
+
+serviceWorkerRegistration.register();
