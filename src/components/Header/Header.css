@@ -162,10 +162,6 @@
     font-size: var(--fs-600);
 }
 
-button{
-    color: var(--fc-black);
-}
-
 .mobile-search{
     display: flex;
     align-items: center;
