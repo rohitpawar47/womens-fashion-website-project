@@ -160,6 +160,9 @@
 
 .profile-icons{
     font-size: var(--fs-600);
+}
+
+button{
     color: var(--fc-black);
 }
 
