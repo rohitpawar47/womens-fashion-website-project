@@ -84,7 +84,7 @@
 .first-nav{
     display: grid;
     grid-template-columns: 30px 1fr 10fr;
-    padding: var(--size-400) var(--size-700);
+    padding: var(--size-400) var(--size-500);
     /* margin-bottom: 1em; */
     /* border-top: 0.3rem solid rgb(136 81 242);
     border-right: 0.3rem solid var(--clr-add-neon);

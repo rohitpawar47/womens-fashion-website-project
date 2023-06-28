@@ -4,6 +4,10 @@
     margin-bottom: 2em;
 }
 
+/* .products-page *{
+    border: 1px solid magenta;
+} */
+
 .products-wrapper{
     width: 95%;
     max-width: 1300px;
@@ -96,8 +100,8 @@
 .large-filter{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding: 1em 2em;
-    gap: 1em;
+    padding: .5em 1em;
+    gap: .5em;
 }
 
 .large-drop{
@@ -201,6 +205,12 @@
     .large-drop{
         width: 350px;
     }
+
+    .large-filter{
+        padding: 1em 2em;
+        gap: 1em;
+    }
+
 
 
     /* .large-filter{
