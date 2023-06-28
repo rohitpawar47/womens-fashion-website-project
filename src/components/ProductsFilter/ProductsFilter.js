@@ -14,17 +14,21 @@ export default function ProductsFilter(props) {
     useOutSideClick(menuRef, filterDropDownHandler, openFilterDrop);
 
     return (
-        <div >
+        <div>
             <div className={`large-flex ${openFilterDrop || props.title != 'Brand' && props.title != 'Category' && props.title != "Sort" && props.title != null
                 ? "open-down" : ""}`}
                 onClick={filterDropDownHandler}
                 ref={menuRef}>
                 <p>{props.title === null ? props.defaultTitle : props.title}</p>
+
                 {
                     openFilterDrop ?
-                        <RiArrowDropUpLine
-                            className="down-arrow" /> : <RiArrowDropDownLine
+                        <span className="arrow-span">
+                            <RiArrowDropUpLine
+                                className="down-arrow" /> </span> :
+                        <span className="arrow-span"> <RiArrowDropDownLine
                             className="down-arrow" />
+                        </span>
                 }
             </div>
             {

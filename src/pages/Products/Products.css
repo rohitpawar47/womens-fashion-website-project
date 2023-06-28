@@ -99,17 +99,32 @@
 
 .large-filter{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, minmax(20px, 1fr)) .2fr;
     padding: .5em 1em;
     gap: .5em;
 }
 
+.filter-reset{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    letter-spacing: .2px;
+    text-decoration: underline;
+    border-top: 1px solid rgb(216, 214, 214);
+    border-bottom: 1px solid rgb(216, 214, 214);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3em;
+    /* display: none; */
+}
+
 .large-drop{
     display: grid;
-    width: 200px;
+    width: 45%;
     background-color: rgb(237, 237, 237);
     position: absolute;
-    top: 58px;
+    top: 51px;
     border: 10px solid rgb(237, 237, 237);
     box-shadow: 1px 1px 5px gray;
     gap: .6em;
@@ -203,14 +218,15 @@
     
 
     .large-drop{
+        top: 58px;
         width: 350px;
     }
 
     .large-filter{
         padding: 1em 2em;
         gap: 1em;
+        grid-template-columns: repeat(4, minmax(20px, 1fr));
     }
-
 
 
     /* .large-filter{

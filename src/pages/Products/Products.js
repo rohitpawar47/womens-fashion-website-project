@@ -206,20 +206,11 @@ export default function Products() {
                             filterDropdown={sortUpAndDown}
                         />
                         <button
-                            style={{
-                                border: 'none',
-                                cursor: 'pointer',
-                                backgroundColor: 'transparent',
-                                letterSpacing: '.2px',
-                                textDecoration: 'underline',
-                                borderTop: '1px solid rgb(216, 214, 214)',
-                                borderBottom: '1px solid rgb(216, 214, 214)',
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: 'center',
-                                gap: ".3em"
-                            }}
-                            onClick={resetWhole}><RxReset /> <p>Reset</p></button>
+                            className="filter-reset"
+                            onClick={resetWhole}>
+                            <p>Reset</p>
+                            {/* <RxReset /> */}
+                        </button>
                     </nav>
                 </div>
             </div>
